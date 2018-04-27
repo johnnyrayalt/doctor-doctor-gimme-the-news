@@ -9,23 +9,23 @@ function parser() {
   newRequest.then(
     function(response) {
       let body = JSON.parse(response);
-      let resultsFirstName = body.data[0].profile.first_name;
-      let resultsLastName = body.data[0].profile.last_name;
-      let resultsAddress = body.data[0].practices[0].visit_address.street + ", " +
-                           body.data[0].practices[0].visit_address.city + ", " +
-                           body.data[0].practices[0].visit_address.state;
-      let resultsPhone = body.data[0].practices[0].phones[0].number;
-      let resultsWebsite = body.data[0].practices[0].website;
-      let resultsAcceptsNewPatients = body.data[0].practices[0].accepts_new_patients;
+      let resultsSetLimit = body.meta.limit;
+      for (let i = 0; i < resultsSetLimit; i++) {
+        let resultsFirstName = body.data[i].profile.first_name;
+        let resultsLastName = body.data[i].profile.last_name;
+        let resultsAddress = body.data[i].practices[0].visit_address.street + ", " +
+                             body.data[i].practices[0].visit_address.city + ", " +
+                             body.data[i].practices[0].visit_address.state;
+        let resultsPhone = body.data[i].practices[0].phones[0].number;
+        let resultsWebsite = body.data[i].practices[0].website;
+        let resultsAcceptsNewPatients = body.data[i].practices[0].accepts_new_patients;
 
-        $('#doctorsView').html(`<p>Name: Dr. ${resultsFirstName} ${resultsLastName}<br />
-          Address: ${resultsAddress}<br />
-          Phone Number: ${resultsPhone}<br />
-          Website: ${resultsWebsite}<br />
-          Accepting New Patients? ${resultsAcceptsNewPatients}</p>`);
-    
-
-
+        $('#doctorsView').append(`<p>Name: Dr. ${resultsFirstName} ${resultsLastName}<br />
+            Address: ${resultsAddress}<br />
+            Phone Number: ${resultsPhone}<br />
+            Website: ${resultsWebsite}<br />
+            Accepting New Patients? ${resultsAcceptsNewPatients}</p>`);
+        }
     },
     function(error) {
       $('#errorHandling').html(`There was an error processing your request: ${error.message}`)
