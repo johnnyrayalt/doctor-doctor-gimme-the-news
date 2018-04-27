@@ -1,7 +1,7 @@
 # Doctor API Search
 
 
-`$ git clone`
+`$ git clone https://github.com/johnnyrayalt/doctor-doctor-gimme-the-news.git`
 
 `$ npm install`
 
