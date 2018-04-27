@@ -1,6 +1,6 @@
-import $ from 'jquery';
 import { Doctor } from './apicall.js';
 import './main.js';
+import $ from 'jquery';
 
 function parser() {
   let openCall = new Doctor();
@@ -24,7 +24,7 @@ function parser() {
           let resultsWebsite = body.data[i].practices[0].website;
           let resultsAcceptsNewPatients = body.data[i].practices[0].accepts_new_patients;
 
-          $('#doctorsView').append(`<p>Name: Dr. ${resultsFirstName} ${resultsLastName}<br />
+          $('#doctorsView').append(`<p class="showDoc">Name: Dr. ${resultsFirstName} ${resultsLastName}<br />
               Address: ${resultsAddress}<br />
               Phone Number: ${resultsPhone}<br />
               Website: ${resultsWebsite}<br />

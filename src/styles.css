@@ -1,3 +1,17 @@
 body {
   background-color: #a4a4a4;
+  margin:auto;
+}
+
+#doctorSearchForm{
+  margin: 5% auto;
+}
+
+#doctorsView, #errorHandling {
+  width: 35%;
+}
+
+.showDoc{
+  background: white;
+  width: auto;
 }
