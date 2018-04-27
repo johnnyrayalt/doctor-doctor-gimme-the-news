@@ -14,8 +14,11 @@ $(document).ready(function() {
       function(response) {
         let body = JSON.parse(response);
         let results = body;
-        console.log(results);
-        // $('#doctorsView').html(`<p>${results}</p>`);
+        // console.log(results);
+        $('#doctorsView').html(`<p>${results}</p>`);
+      },
+      function(error) {
+        $('#errorHandling').html(`There was an error processing your request: ${error.message}`)
       }
     )
   })
