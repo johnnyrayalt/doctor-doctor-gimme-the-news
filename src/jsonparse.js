@@ -2,9 +2,9 @@ import { Doctor } from './apicall.js';
 import './main.js';
 import $ from 'jquery';
 
-function parser() {
-  let openCall = new Doctor();
-  let newRequest = openCall.apiCall();
+function parser(userInputName, userInputAilment) {
+  let openCall = new Doctor(userInputName, userInputAilment);
+  let newRequest = openCall.apiCall(userInputName, userInputAilment);
 
   newRequest.then(
     function(response) {
@@ -14,14 +14,16 @@ function parser() {
       if (resultsTotal === 0) {
         $('#doctorsView').html('<p>There were no results matching your input</p>');
       } else {
-        for (let i = 0; i < resultsSetLimit; i++) {
+        for (let i = 0; i <= resultsSetLimit; i++) {
           let resultsFirstName = body.data[i].profile.first_name;
           let resultsLastName = body.data[i].profile.last_name;
           let resultsAddress = body.data[i].practices[0].visit_address.street + ", " +
                                body.data[i].practices[0].visit_address.city + ", " +
                                body.data[i].practices[0].visit_address.state;
           let resultsPhone = body.data[i].practices[0].phones[0].number;
-          let resultsWebsite = body.data[i].practices[0].website;
+          let resultsWebsite;
+          body.data[i].practices[0].website === undefined ? (resultsWebsite = "There is none") : (resultsWebsite = body.data[i].practices[0].website);
+
           let resultsAcceptsNewPatients = body.data[i].practices[0].accepts_new_patients;
 
           $('#doctorsView').append(`<p class="showDoc">Name: Dr. ${resultsFirstName} ${resultsLastName}<br />
