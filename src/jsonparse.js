@@ -14,6 +14,7 @@ function parser(userInputName, userInputAilment) {
       if (resultsTotal === 0) {
         $('#doctorsView').html('<p>There were no results matching your input</p>');
       } else {
+        $('#doctorsView').html('<p></p>')
         for (let i = 0; i <= resultsSetLimit; i++) {
           let resultsFirstName = body.data[i].profile.first_name;
           let resultsLastName = body.data[i].profile.last_name;
