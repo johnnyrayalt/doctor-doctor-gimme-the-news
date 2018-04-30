@@ -1,12 +1,21 @@
 # Doctor API Search
 
+To run this app, you will need an API key from https://developer.betterdoctor.com/
+* Click 'Sign Up' to register
+* Upon completion you should recieve a key
+
 
 `$ git clone https://github.com/johnnyrayalt/doctor-doctor-gimme-the-news.git`
+
+`$ cd doctor-doctor-gimme-the-news`
+
+`$ touch .env`
+
+In the newly created .env file, copy and paste `exports.apiKey=[YOUR API KEY]` and save
 
 `$ npm install`
 
 `$ npm run start`
-
 
 | Description | Input | Output |
 |-------------|-------|--------|
