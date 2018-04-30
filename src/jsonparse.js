@@ -23,11 +23,13 @@ function parser(userInputName, userInputAilment) {
                                body.data[i].practices[0].visit_address.state;
           let resultsPhone = body.data[i].practices[0].phones[0].number;
           let resultsWebsite;
-          body.data[i].practices[0].website === undefined ? (resultsWebsite = "There is none") : (resultsWebsite = body.data[i].practices[0].website);
+          body.data[i].practices[0].website === undefined ? (resultsWebsite = "There is none") : (resultsWebsite = `<a href=${body.data[i].practices[0].website} target="_blank">${body.data[i].practices[0].website}</a>`);
 
-          let resultsAcceptsNewPatients = body.data[i].practices[0].accepts_new_patients;
+          let resultsAcceptsNewPatients;
+          body.data[i].practices[0].accepts_new_patients === true ? (resultsAcceptsNewPatients = "Yes!") : (resultsAcceptsNewPatients = "No!")
 
-          $('#doctorsView').append(`<p class="showDoc">Name: Dr. ${resultsFirstName} ${resultsLastName}<br />
+          $('#doctorsView').append(`
+              <p class="showDoc">Name: Dr. ${resultsFirstName} ${resultsLastName}<br />
               Address: ${resultsAddress}<br />
               Phone Number: ${resultsPhone}<br />
               Website: ${resultsWebsite}<br />

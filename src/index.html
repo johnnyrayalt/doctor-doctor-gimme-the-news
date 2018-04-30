@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>project</title>
-  </head>
-  <body class="container">
-    <form id="doctorSearchForm">
-      <input id="doctorNameField" type="text" placeholder="doctor"/>
-      <input id="ailmentNameField" type="text" placeholder="ailment"/>
-      <button type="submit" id="doctorSearchButton">Lookit</button>
-    </form>
-    <div id="doctorsView">
-
+<head>
+  <title>project</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row center">
+      <h2>Look up Doctors in Portland</h2>
     </div>
-    <div>
-      <p id="errorHandling">
-
-      </p>
+    <div class="row center">
+      <form id="doctorSearchForm">
+        <input id="doctorNameField" type="text" placeholder="doctor"/>
+        <input id="ailmentNameField" type="text" placeholder="ailment"/>
+        <button type="submit" id="doctorSearchButton">Look up</button>
+      </form>
     </div>
-  </body>
+    <div class="row">
+      <p class="center">Results</p>
+    </div>
+
+
+    <div class="row center">
+      <div id="doctorsView">
+      </div>
+      <div>
+        <p id="errorHandling"></p>
+      </div>
+    </div>
+
+  </div>
+</body>
 </html>

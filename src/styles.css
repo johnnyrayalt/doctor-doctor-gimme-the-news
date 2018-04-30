@@ -1,17 +1,22 @@
 body {
-  background-color: #a4a4a4;
+  background-color: #0043aa;
   margin:auto;
 }
 
-#doctorSearchForm{
-  margin: 5% auto;
+.container {
+  margin:5% auto;
+  background-color: white;
+}
+
+#doctorSearchForm, h2, #doctorsView, #errorHandling, .center, #resultsP{
+  margin: 1rem auto;
 }
 
 #doctorsView, #errorHandling {
   width: 35%;
 }
 
-.showDoc{
-  background: white;
-  width: auto;
+.showDoc:not(:last-child){
+  border-bottom: 2px solid black;
+  padding-bottom: .5rem;
 }
